@@ -1,0 +1,189 @@
+@import "tailwindcss";
+
+/* ✅ 1. Font Poppins */
+
+/* Regular */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+/* SemiBold */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+/* ExtraBold */
+@font-face {
+  font-family: "Poppins";
+  src: url("/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+/* Target the scrollbar for the entire page or specific containers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  /* Width of the vertical scrollbar */
+  height: 8px;
+  /* Height of the horizontal scrollbar */
+}
+
+/* The background of the scrollbar (Track) */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  /* Keeps it clean, or use #f1f5f9 (slate-100) */
+  border-radius: 10px;
+}
+
+/* The draggable part (Thumb) */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  /* slate-300: subtle and professional */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  /* Creates padding effect around thumb */
+  background-clip: content-box;
+}
+
+/* Hover effect on the thumb */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  /* slate-400: slightly darker on hover */
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+@keyframes waveHand {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  10% {
+    transform: rotate(14deg);
+  }
+
+  20% {
+    transform: rotate(-8deg);
+  }
+
+  30% {
+    transform: rotate(14deg);
+  }
+
+  40% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  60% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.wave-hand {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: waveHand 2s;
+}
+
+@theme {
+
+  /* font family */
+  --font-poppins: "Poppins";
+
+  /* Primary Brand Color (Soft Indigo/Purple) */
+  --color-primary-50: #f0f0fe;
+  --color-primary-100: #e4e2fd;
+  --color-primary-200: #cec9fa;
+  --color-primary-300: #b0a7f6;
+  --color-primary-400: #8f81f1;
+  --color-primary-500: #7367f0;
+  /* Base Brand Color */
+  --color-primary-600: #5f51e6;
+  --color-primary-700: #4e40d4;
+  --color-primary-800: #3f34ac;
+  --color-primary-900: #352d8a;
+  --color-primary-950: #211b55;
+
+  /* Surface / Neutral Colors (Grays for backgrounds, borders, text) */
+  --color-surface-50: #f8fafc;
+  /* Main App Background */
+  --color-surface-100: #f1f5f9;
+  /* Soft borders/hover states */
+  --color-surface-200: #e2e8f0;
+  --color-surface-300: #cbd5e1;
+  --color-surface-400: #94a3b8;
+  /* Muted text (e.g., "Last month:") */
+  --color-surface-500: #64748b;
+  /* Secondary text */
+  --color-surface-600: #475569;
+  --color-surface-700: #334155;
+  --color-surface-800: #1e293b;
+  /* Primary Headings */
+  --color-surface-900: #0f172a;
+  --color-surface-950: #020617;
+
+  /* Semantic Accents */
+  --color-accent-green: #28c76f;
+  /* Spending Icon */
+  --color-accent-orange: #ff9f43;
+  /* Savings Icon */
+  --color-accent-teal: #00cfe8;
+  /* Chart Accents */
+}
+
+/* Target the scrollbar for the entire page or specific containers */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  /* Width of the vertical scrollbar */
+  height: 8px;
+  /* Height of the horizontal scrollbar */
+}
+
+/* The background of the scrollbar (Track) */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  /* Keeps it clean, or use #f1f5f9 (slate-100) */
+  border-radius: 10px;
+}
+
+/* The draggable part (Thumb) */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  /* slate-300: subtle and professional */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  /* Creates padding effect around thumb */
+  background-clip: content-box;
+}
+
+/* Hover effect on the thumb */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+  /* slate-400: slightly darker on hover */
+  border: 1px solid transparent;
+  background-clip: content-box;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
