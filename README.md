@@ -227,8 +227,8 @@ All accounts are pre-configured in the system database with the same secure pass
 | System Role | Account Registration Name | Identification Email Link |
 | --- | --- | --- |
 | **System Administrator** | `System Administrator Account` | `admin@platform.com` |
-| **Store Owner (Merchant)** | `Business Owner Account Profile` | `owner@merchstore.com` |
-| **Normal User (Consumer)** | `Standard Consumer Account Test` | `user@buyermail.com` |
+| **Store Owner (Merchant)** | `Business Owner Account Profile` | `owner1@merchstore.com` |
+| **Normal User (Consumer)** | `Standard Consumer Account Test` | `user1@buyermail.com` |
 
 ---
 
