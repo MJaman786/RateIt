@@ -217,3 +217,48 @@ http://localhost:8080/api/v1/docs
 ```
 
 ---
+
+### Default Seed Credentials
+
+All accounts are pre-configured in the system database with the same secure password parameter:
+
+* **Default Password:** `SecurePass123!`
+
+| System Role | Account Registration Name | Identification Email Link |
+| --- | --- | --- |
+| **System Administrator** | `System Administrator Account` | `admin@platform.com` |
+| **Store Owner (Merchant)** | `Business Owner Account Profile` | `owner@merchstore.com` |
+| **Normal User (Consumer)** | `Standard Consumer Account Test` | `user@buyermail.com` |
+
+---
+
+### Project Execution & Data Flow Blueprint
+
+The application employs a unified, single-gateway entry authentication node that evaluates account credentials, injects a security context token, and securely routes the session layout based on the account's authorization role clearance:
+
+```mermaid
+graph TD
+    %% Onboarding Sequence
+    A[Consumer Registration / Login Gateway] -->|Validates Credentials & Clearances| B{Extract System Role Context}
+    
+    %% Admin Pipeline
+    B -->|Clearance: ADMIN| C[System Admin Control Center]
+    C --> C1[Compute Live Dashboard Core Metric Counters]
+    C --> C2[Provision Clean System Profiles: Name / Mail / Address Validation]
+    C --> C3[Link Verified Store Owners to New Commercial Shop Venues]
+    C --> C4[Monitor Platform Ratings Registry Ledger]
+    
+    %% Store Owner Pipeline
+    B -->|Clearance: STORE_OWNER| D[Merchant Workspace Panel]
+    D --> D1[Query Live Store Average Performance Ratings]
+    D --> D2[Audit Customer Review Ledger: Name / Email / Rating / Comment Mapping]
+    D --> D3[Update Corporate Account Security Keys]
+    
+    %% Normal User Pipeline
+    B -->|Clearance: USER| E[Consumer Store Discovery Portal]
+    E --> E1[Look Up Shop Outlets by Title or Geographic Coordinates]
+    E --> E2[Publish High-Fidelity Store Star Appraisals: 1 to 5 Stars]
+    E --> E3[Upsert / Modify Historically Logged Feedback Actions]
+    E --> E4[Track Personal Posted Assessment Timelines Log]
+
+```
