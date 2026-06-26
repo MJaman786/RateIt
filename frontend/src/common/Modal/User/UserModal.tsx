@@ -28,7 +28,7 @@ interface UserModalProps {
 const FORM_ROLE_OPTIONS = [
     { label: "Normal User", value: "USER" },
     { label: "Store Owner", value: "STORE_OWNER" },
-    { label: "Administrator", value: "ADMIN" },
+    // { label: "Administrator", value: "ADMIN" },
 ];
 
 const UserActionValidationSchema = Yup.object().shape({
