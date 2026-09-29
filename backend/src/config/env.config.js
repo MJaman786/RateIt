@@ -11,6 +11,7 @@ const envConfig = {
     GOOGLE_USER_EMAIL: process.env.GOOGLE_USER_EMAIL,
     GOOGLE_APP_PASSWORD: process.env.GOOGLE_APP_PASSWORD,
     db: {
+        connectionString: process.env.DATABASE_URL,
         user: process.env.DB_USER || 'postgres',
         host: process.env.DB_HOST || '127.0.0.1',
         database: process.env.DB_DATABASE || 'store_rating_db',

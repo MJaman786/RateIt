@@ -43,8 +43,9 @@ export default function StoreManagement() {
                     name: store.name,
                     email: store.email,
                     address: store.address,
-                    rating: Number(store.avg_rating ?? 0),
-                    ownerId: store.owner_id,
+                    rating: Number(store.rating ?? 0),
+                    ownerId: store.ownerId,
+                    ownerName: store.ownerName,
                 }))
             );
         }

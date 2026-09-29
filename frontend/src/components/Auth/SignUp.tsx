@@ -11,7 +11,7 @@ import Dropdown from "../Ui/Dropdown";
 const ROLE_OPTIONS = [
   { label: "Normal User", value: "USER" },
   { label: "Store Owner", value: "STORE_OWNER" },
-  { label: "System Administrator", value: "ADMIN" },
+  // { label: "System Administrator", value: "ADMIN" },
 ];
 
 // --- Validation Schema ---

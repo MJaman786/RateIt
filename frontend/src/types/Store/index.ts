@@ -3,6 +3,7 @@ export interface Store {
     name: string,
     email: string,
     address: string,
-    owner_id: string,
-    avg_rating: string
+    ownerId: string,
+    ownerName: string,
+    rating: number
 }

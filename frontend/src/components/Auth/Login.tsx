@@ -62,7 +62,7 @@ export default function Login() {
   return (
     <div className="font-poppins h-screen bg-surface-50 flex items-center justify-center overflow-hidden">
       <div className="w-full h-full max-w-[1440px] bg-white lg:shadow-xl lg:shadow-surface-200/40 lg:border overflow-hidden flex">
-        
+
         {/* ─── LEFT SIDE: MINIMALISTIC BRAND ARTWORK PANEL ─── */}
         <div className="hidden lg:flex lg:w-1/2 bg-surface-900 relative flex-col justify-between p-12 overflow-hidden">
           {/* Subtle Ambient Glows matching primary brand theme */}
@@ -102,7 +102,7 @@ export default function Login() {
 
         {/* ─── RIGHT SIDE: CLEAN MINIMAL FORM PANEL ─── */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-16 lg:px-20 xl:px-24 py-12 bg-white overflow-y-auto">
-          
+
           {/* Mobile Logo Visiblity */}
           <div className="flex items-center gap-3 lg:hidden mb-10">
             <div className="w-9 h-9 bg-primary-500 rounded-xl flex items-center justify-center text-white">
@@ -123,7 +123,7 @@ export default function Login() {
 
           {/* Login Interactive Form */}
           <form onSubmit={formik.handleSubmit} className="space-y-5">
-            
+
             {/* Reusable Email Input Component */}
             <InputField
               label="Email Address"
@@ -153,8 +153,8 @@ export default function Login() {
                 error={formik.errors.password}
               />
               <div className="absolute top-0 right-1">
-                <a 
-                  href="#forgot" 
+                <a
+                  href="#forgot"
                   className="text-[11px] font-bold text-primary-500 hover:text-primary-600 transition-colors tracking-wide uppercase"
                 >
                   Forgot?
@@ -199,6 +199,29 @@ export default function Login() {
               </button>
             </p>
           </form>
+
+          {/* Quick Demo Access Credentials */}
+          <div className="mt-8 pt-6 border-t border-surface-100">
+            <h3 className="text-[10px] font-bold text-surface-400 tracking-widest uppercase mb-3 text-center">
+              Demo Login
+            </h3>
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { role: 'Admin', email: 'admin@platform.com', pass: 'SecurePass123!' },
+                { role: 'Owner', email: 'owner1@merchstore.com', pass: 'SecurePass123!' },
+                { role: 'User', email: 'user1@buyermail.com', pass: 'SecurePass123!' }
+              ].map((cred, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => formik.setValues({ email: cred.email, password: cred.pass, rememberMe: false })}
+                  className="flex items-center justify-center py-2 bg-surface-50 hover:bg-primary-50 border border-surface-200 hover:border-primary-200 rounded-lg transition-all cursor-pointer group focus:outline-none focus:ring-2 focus:ring-primary-500/20 shadow-sm"
+                >
+                  <span className="text-xs font-bold text-surface-600 group-hover:text-primary-600">{cred.role}</span>
+                </button>
+              ))}
+            </div>
+          </div>
 
         </div>
       </div>

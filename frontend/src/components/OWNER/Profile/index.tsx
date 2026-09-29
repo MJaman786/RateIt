@@ -28,76 +28,85 @@ export default function StoreOwnerProfile() {
                 />
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-                <div className="bg-white border border-surface-200 rounded-2xl p-6 shadow-sm flex flex-col items-center text-center">
-                    <div className="w-20 h-20 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 mb-4 border border-primary-100 shadow-inner">
-                        <User size={36} />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                {/* Main Identity Card (Bento Large) */}
+                <div className="md:col-span-2 lg:col-span-1 lg:row-span-2 bg-white border border-surface-200 rounded-3xl p-8 shadow-sm flex flex-col items-center text-center relative overflow-hidden group hover:border-amber-200 transition-colors">
+                    <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-amber-500/10 to-amber-600/5"></div>
+                    <div className="w-24 h-24 bg-white rounded-2xl flex items-center justify-center text-amber-500 mb-6 border border-amber-100 shadow-xl shadow-amber-500/10 relative z-10 group-hover:scale-105 transition-transform duration-300">
+                        <User size={40} />
                     </div>
-                    <h3 className="text-base font-bold text-surface-900 tracking-tight uppercase">{profile.name}</h3>
-                    
-                    <div className="mt-2 px-3 py-1 bg-amber-50 border border-amber-100 rounded-md text-[10px] font-bold tracking-wider uppercase text-amber-700">
+                    <h3 className="text-xl font-bold text-surface-900 tracking-tight uppercase relative z-10">{profile.name}</h3>
+                    <div className="mt-3 px-4 py-1.5 bg-amber-50 border border-amber-100 rounded-full text-xs font-bold tracking-widest uppercase text-amber-600 relative z-10">
                         Corporate Store Owner
                     </div>
 
-                    <div className="w-full border-t border-surface-100 my-6 pt-6">
-                        <p className="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-3">Security Access Control</p>
+                    <div className="w-full mt-auto pt-10 relative z-10">
                         <button
                             type="button"
                             onClick={() => setIsPasswordModalOpen(true)}
-                            className="w-full inline-flex items-center justify-center gap-2 px-4 h-11 bg-surface-900 hover:bg-surface-800 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-sm cursor-pointer focus:outline-none"
+                            className="w-full inline-flex items-center justify-center gap-2 px-4 h-12 bg-surface-900 hover:bg-surface-800 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md hover:shadow-lg focus:outline-none"
                         >
-                            <KeyRound size={15} /> Change Password
+                            <KeyRound size={16} /> Manage Password
                         </button>
                     </div>
                 </div>
 
-                <div className="lg:col-span-2 bg-white border border-surface-200 rounded-2xl shadow-sm overflow-hidden">
-                    <div className="px-6 py-4 border-b border-surface-100 bg-surface-50/50">
-                        <h4 className="text-xs font-bold text-surface-700 uppercase tracking-wider">Merchant Specification Directory</h4>
+                {/* Email Card (Bento Small) */}
+                <div className="bg-white border border-surface-200 rounded-3xl p-6 shadow-sm flex flex-col gap-4 group hover:border-amber-200 transition-colors">
+                    <div className="w-12 h-12 bg-amber-50 border border-amber-100 rounded-2xl flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                        <Mail size={20} />
                     </div>
-                    
-                    <div className="p-6 space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-1.5">
-                                <span className="text-[10px] font-bold text-surface-400 uppercase tracking-widest block ml-0.5">Secure Contact Link</span>
-                                <div className="flex items-center gap-3 bg-surface-50 p-3 rounded-xl border border-surface-100">
-                                    <Mail size={15} className="text-surface-400 shrink-0" />
-                                    <span className="text-xs font-semibold text-surface-700 truncate">{profile.email}</span>
-                                </div>
-                            </div>
+                    <div>
+                        <span className="text-[10px] font-bold text-surface-400 uppercase tracking-widest block mb-1">Secure Contact Link</span>
+                        <span className="text-sm font-semibold text-surface-800 truncate block">{profile.email}</span>
+                    </div>
+                </div>
 
-                            <div className="space-y-1.5">
-                                <span className="text-[10px] font-bold text-surface-400 uppercase tracking-widest block ml-0.5">Linked Asset Destination</span>
-                                <div className="flex items-center gap-3 bg-surface-50 p-3 rounded-xl border border-surface-100">
-                                    <Store size={15} className="text-surface-400 shrink-0" />
-                                    <span className="text-xs font-bold text-surface-800 truncate">
-                                        {(profile as any).linkedStoreName || "No Store Allocated"}
-                                    </span>
-                                </div>
-                            </div>
+                {/* Linked Asset (Bento Small) */}
+                <div className="bg-white border border-surface-200 rounded-3xl p-6 shadow-sm flex flex-col gap-4 group hover:border-amber-200 transition-colors">
+                    <div className="w-12 h-12 bg-surface-50 rounded-2xl flex items-center justify-center text-surface-500 group-hover:bg-amber-50 group-hover:text-amber-600 transition-colors">
+                        <Store size={20} />
+                    </div>
+                    <div>
+                        <span className="text-[10px] font-bold text-surface-400 uppercase tracking-widest block mb-1">Linked Asset Destination</span>
+                        <span className="text-sm font-bold text-surface-800 truncate block">
+                            {(profile as any).linkedStoreName || "No Store Allocated"}
+                        </span>
+                    </div>
+                </div>
+
+                {/* Address Card (Bento Wide) */}
+                <div className="md:col-span-2 lg:col-span-2 bg-white border border-surface-200 rounded-3xl p-6 shadow-sm flex flex-col sm:flex-row gap-5 sm:items-center group hover:border-amber-200 transition-colors">
+                    <div className="w-12 h-12 bg-surface-50 rounded-2xl flex items-center justify-center text-surface-500 shrink-0 group-hover:bg-amber-50 group-hover:text-amber-500 transition-colors duration-300">
+                        <MapPin size={20} />
+                    </div>
+                    <div>
+                        <span className="text-[10px] font-bold text-surface-400 uppercase tracking-widest block mb-1.5">Corporate Shop Street Coordinates</span>
+                        <span className="text-sm font-semibold text-surface-700 leading-relaxed block max-w-xl">
+                            {(profile as any).storeAddress || profile.address}
+                        </span>
+                    </div>
+                </div>
+
+                {/* Initiation Log (Bento Extra Wide) */}
+                <div className="md:col-span-2 lg:col-span-3 bg-surface-900 border border-surface-800 rounded-3xl p-6 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 overflow-hidden relative">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
+                    <div className="flex items-center gap-4 relative z-10">
+                        <div className="w-12 h-12 bg-surface-800 rounded-2xl flex items-center justify-center text-surface-400">
+                            <Calendar size={20} />
                         </div>
-
-                        <div className="space-y-1.5">
-                            <span className="text-[10px] font-bold text-surface-400 uppercase tracking-widest block ml-0.5">Corporate Shop Street Coordinates</span>
-                            <div className="flex items-center gap-3 bg-surface-50 p-3 rounded-xl border border-surface-100">
-                                <MapPin size={15} className="text-surface-400 shrink-0" />
-                                <span className="text-xs font-semibold text-surface-700 leading-relaxed">
-                                    {(profile as any).storeAddress || profile.address}
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className="space-y-1.5">
-                            <span className="text-[10px] font-bold text-surface-400 uppercase tracking-widest block ml-0.5">Account Registry Initiation Log</span>
-                            <div className="flex items-center gap-3 bg-surface-50 p-3 rounded-xl border border-surface-100 w-fit">
-                                <Calendar size={15} className="text-surface-400 shrink-0" />
-                                <span className="text-xs font-bold text-surface-600">
-                                    {profile.createdAt ? new Date(profile.createdAt).toLocaleString() : 'N/A'}
-                                </span>
-                            </div>
+                        <div>
+                            <span className="text-[10px] font-bold text-surface-500 uppercase tracking-widest block mb-1">Account Registry Initiation Log</span>
+                            <span className="text-sm font-bold text-white tracking-wide">
+                                {profile.createdAt ? new Date(profile.createdAt).toLocaleString(undefined, {
+                                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                                }) : 'N/A'}
+                            </span>
                         </div>
                     </div>
                 </div>
+
             </div>
 
             {isPasswordModalOpen && (
